@@ -4,6 +4,7 @@ import sys
 import check50
 import check50.py
 
+
 @check50.check()
 def exists():
     """degrees.py exists"""
@@ -32,6 +33,7 @@ def path1():
     if len(path) != 1:
         raise check50.Mismatch("1", str(len(path)))
 
+
 @check50.check(imports)
 def path_none():
     """degrees.py identifies when path does not exist"""
@@ -44,6 +46,7 @@ def path_none():
     if path is not None:
         raise check50.Mismatch("no path", str(path))
 
+
 @check50.check(imports)
 def path2():
     """degrees.py finds a path of length 2"""
@@ -55,9 +58,10 @@ def path2():
     path = degrees.shortest_path(hanks, patinkin)
     if len(path) != 2:
         raise check50.Mismatch("2", str(len(path)))
-    expected = [('109830', '705'), ('93779', '1597')]
+    expected = [("109830", "705"), ("93779", "1597")]
     if path != expected:
         raise check50.Mismatch(str(expected), str(path))
+
 
 @check50.check(imports)
 def path4():
@@ -71,6 +75,7 @@ def path4():
     if len(path) != 4:
         raise check50.Mismatch("4", str(len(path)))
 
+
 @check50.check(imports)
 def path0():
     """degrees.py finds a path of length 0"""
@@ -79,5 +84,5 @@ def path0():
     degrees.load_data("small")
     wright = degrees.person_id_for_name("Robin Wright")
     path = degrees.shortest_path(wright, wright)
-    if len(path) != 0:
-        raise check50.Mismatch("0", str(len(path)))
+    if path != []:
+        raise check50.Mismatch("[]", str(path))
