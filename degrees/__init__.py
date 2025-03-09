@@ -77,7 +77,7 @@ def path4():
     hoffman = degrees.person_id_for_name("Dustin Hoffman")
     path = degrees.shortest_path(wright, hoffman)
     if not isinstance(path, list):
-        raise check50.Mismatch("list", str(path))
+        raise check50.Mismatch("list", type(path).__name__)
     if len(path) != 4:
         raise check50.Mismatch("4", str(len(path)))
 
