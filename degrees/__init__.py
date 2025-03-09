@@ -30,6 +30,8 @@ def path1():
     bacon = degrees.person_id_for_name("Kevin Bacon")
     cruise = degrees.person_id_for_name("Tom Cruise")
     path = degrees.shortest_path(bacon, cruise)
+    if not isinstance(path, list):
+        raise check50.Mismatch("list", type(path).__name__)
     if len(path) != 1:
         raise check50.Mismatch("1", str(len(path)))
 
@@ -56,6 +58,8 @@ def path2():
     hanks = degrees.person_id_for_name("Tom Hanks")
     patinkin = degrees.person_id_for_name("Mandy Patinkin")
     path = degrees.shortest_path(hanks, patinkin)
+    if not isinstance(path, list):
+        raise check50.Mismatch("list", type(path).__name__)
     if len(path) != 2:
         raise check50.Mismatch("2", str(len(path)))
     expected = [("109830", "705"), ("93779", "1597")]
@@ -72,6 +76,8 @@ def path4():
     wright = degrees.person_id_for_name("Robin Wright")
     hoffman = degrees.person_id_for_name("Dustin Hoffman")
     path = degrees.shortest_path(wright, hoffman)
+    if not isinstance(path, list):
+        raise check50.Mismatch("list", str(path))
     if len(path) != 4:
         raise check50.Mismatch("4", str(len(path)))
 
@@ -84,5 +90,7 @@ def path0():
     degrees.load_data("small")
     wright = degrees.person_id_for_name("Robin Wright")
     path = degrees.shortest_path(wright, wright)
-    if path != []:
-        raise check50.Mismatch("[]", str(path))
+    if not isinstance(path, list):
+        raise check50.Mismatch("list", type(path).__name__)
+    if len(path) != 0:
+        raise check50.Mismatch("0", str(len(path)))
